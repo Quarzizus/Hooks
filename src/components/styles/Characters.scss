@@ -1,0 +1,9 @@
+.Characters {
+  display: grid;
+  width: 70%;
+  height: minmax(100vh, auto);
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  background-color: aliceblue;
+  padding: 20px 0;
+}

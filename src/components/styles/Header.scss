@@ -1,0 +1,17 @@
+.Header {
+  background-color: rgb(251, 175, 11);
+  color: black;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: cursive;
+
+  button {
+    border-radius: none;
+    border: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    padding: 10px 15px;
+  }
+}

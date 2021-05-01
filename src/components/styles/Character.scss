@@ -1,0 +1,26 @@
+.Character {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  .container__img {
+    width: 50%;
+    height: 50%;
+    .Character_img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  .Character__name {
+    text-align: center;
+    color: orange;
+    font-size: 18px;
+  }
+  .Character__origin {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .Character__location {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
