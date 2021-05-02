@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import Character from "../components/Character";
+import Favorites from "../components/Favorites";
 import ThemeContext from "../context/ThemeContext";
 import { initialState, favoriteReducer } from "../reducers/favoriteReducer";
 import "./styles/Characters.scss";
@@ -7,9 +8,9 @@ import "./styles/Characters.scss";
 const Characters = () => {
   const { getUsers, colors, users } = useContext(ThemeContext);
 
+  const [stateFavorites, dispatch] = useReducer(favoriteReducer, initialState);
   const handlerClick = (favorite) => {
-    const [favorites, dispatch] = useReducer(favoriteReducer, initialState);
-    const valid = favorites.favorites.find(
+    const valid = stateFavorites.favorites.find(
       (favoritesFavorite) => favoritesFavorite.id == favorite.id
     );
     if (!valid) {
@@ -26,18 +27,20 @@ const Characters = () => {
 
   return (
     <article className="Characters" style={colors}>
-      {favorites.favorites.map((favorite) => {
-        return (
-          <li key={favorite.id}>
-            <Character
-              first_name={favorite.first_name}
-              last_name={favorite.last_name}
-              email={favorite.email}
-              avatar={favorite.avatar}
-            />
-          </li>
-        );
-      })}
+      <Favorites>
+        {stateFavorites.favorites.map((favorite) => {
+          return (
+            <li key={favorite.id}>
+              <Character
+                first_name={favorite.first_name}
+                last_name={favorite.last_name}
+                email={favorite.email}
+                avatar={favorite.avatar}
+              />
+            </li>
+          );
+        })}
+      </Favorites>
 
       {users.map((user) => {
         return (
