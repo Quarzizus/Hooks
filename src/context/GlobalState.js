@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import GlobalContext from "./GlobalContext";
 
 const GlobalState = ({ children }) => {
@@ -24,9 +24,13 @@ const GlobalState = ({ children }) => {
     setSearch(e.target.value);
   };
 
-  const usersFiltered = users.filter((user) => {
-    return user.first_name.toLowerCase().includes(search.toLowerCase());
-  });
+  const usersFiltered = useMemo(
+    () =>
+      users.filter((user) => {
+        return user.first_name.toLowerCase().includes(search.toLowerCase());
+      }),
+    [users, search]
+  );
 
   return (
     <GlobalContext.Provider
