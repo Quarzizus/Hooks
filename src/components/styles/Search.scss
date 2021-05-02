@@ -1,0 +1,17 @@
+.Search {
+  grid-row: 1/2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/-1;
+  background-color: rgb(250, 113, 33);
+  height: 65px;
+  padding: 10px;
+  .Search_input {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: none;
+  }
+}

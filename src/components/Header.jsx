@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import ThemeContext from "../context/ThemeContext";
+import GlobalContext from "../context/GlobalContext";
 import "../components/styles/Header.scss";
 
 const Header = () => {
-  const { setColors, mode, setMode } = useContext(ThemeContext);
+  const { setColors, mode, setMode } = useContext(GlobalContext);
 
   const clickHandler = () => {
     if (!mode) {

@@ -1,5 +1,24 @@
 .Favorites {
-  background-color: darkblue;
-  display: flex;
-  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  width: 100%;
+
+  .Favorite_title {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-color: rgb(106, 106, 235);
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  li {
+    list-style: none;
+    .Character {
+      grid-row: 2/3;
+    }
+  }
 }

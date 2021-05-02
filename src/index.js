@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./containers/App";
-import ThemeState from "./context/ThemeState";
+import GlobalState from "./context/GlobalState";
 
 ReactDOM.render(
-  <ThemeState>
+  <GlobalState>
     <App />
-  </ThemeState>,
+  </GlobalState>,
   document.getElementById("App")
 );

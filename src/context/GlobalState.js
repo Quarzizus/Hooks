@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import ThemeContext from "../context/ThemeContext";
+import GlobalContext from "./GlobalContext";
 
-const ThemeState = ({ children }) => {
+const GlobalState = ({ children }) => {
   const [mode, setMode] = useState(false);
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
   const [colors, setColors] = useState({
     background: "white",
     color: "black",
@@ -19,21 +20,33 @@ const ThemeState = ({ children }) => {
     }
   };
 
+  const handlerChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const usersFiltered = users.filter((user) => {
+    return user.first_name.toLowerCase().includes(search.toLowerCase());
+  });
+
   return (
-    <ThemeContext.Provider
+    <GlobalContext.Provider
       value={{
         getUsers,
+        usersFiltered,
+        handlerChange,
         colors,
         users,
         mode,
+        search,
         setColors,
         setUsers,
         setMode,
+        setSearch,
       }}
     >
       {children}
-    </ThemeContext.Provider>
+    </GlobalContext.Provider>
   );
 };
 
-export default ThemeState;
+export default GlobalState;
